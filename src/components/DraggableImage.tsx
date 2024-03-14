@@ -1,50 +1,18 @@
-import { useState } from "react";
-import { useDrag } from "react-dnd";
+import { Rnd } from "react-rnd";
 
 type DraggableImagePropsType = {
-  position: {
-    x: number,
-    y: number
-  },
-  handleDrop: (x: number, y: number) => void,
   src: string,
   style?: object,
   className?: string
 }
 
-const DraggableImage: React.FC<DraggableImagePropsType> = ({ position, handleDrop, src, style, className }) => {
-  const [imageWidth, setImageWidth] = useState<number>(500)
-  const [{ isDragging }, drag] = useDrag({
-    type: 'image',
-    end: (item, monitor) => {
-      const droppedPosition = monitor.getSourceClientOffset()
-      if (droppedPosition) {
-        handleDrop(droppedPosition?.x, droppedPosition?.y)
-      }
-    },
-    collect: (monitor) => ({
-      isDragging: !!monitor.isDragging(),
-    }),
-  });
+const DraggableImage: React.FC<DraggableImagePropsType> = ({ src, style, className }) => {
+  const options = { x: 50, y: 50, width: '80%', height: '100%' }
 
   return (
-    <div
-      ref={drag}
-      className={`absolute cursor-move z-0 ${className}`}
-      style={{
-        opacity: isDragging ? 0.5 : 1,
-        left: position.x,
-        top: position.y,
-        width: imageWidth,
-        ...style
-      }}
-    >
-      <img
-        src={src}
-        alt="draggable"
-        className="w-full"
-      />
-    </div >
+    <Rnd default={options} lockAspectRatio={true} style={style} className={`cursor-move z-0 ${className}`}>
+      <img src={src} alt="draggable" className="w-full" draggable={false} />
+    </Rnd >
   )
 }
 

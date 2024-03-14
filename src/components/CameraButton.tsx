@@ -11,7 +11,7 @@ const CameraButton = (props: CameraButtonPropsType) => {
 
   return (
     <div className={className}>
-      <input id="image" type="file" className="w-0 h-0" onChange={handleUploadImage} />
+      <input id="image" type="file" accept="image/*" className="w-0 h-0" onChange={handleUploadImage} />
       <label htmlFor="image" className="btn btn-primary w-full">
         <svg
           xmlns="http://www.w3.org/2000/svg"
