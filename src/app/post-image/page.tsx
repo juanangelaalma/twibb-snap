@@ -59,7 +59,7 @@ export default function PostImage() {
               aria-hidden="true"
               className={`inset-0 absolute aspect-video border rounded-full -translate-y-1/2 group-hover:-translate-y-1/4 duration-300 bg-gradient-to-b from-purple-500 to-white blur-2xl opacity-25`}
             />
-            <div className="mb-6 w-[350px] h-[350px] md:w-[400px] md:h-[400px] relative rounded-lg overflow-hidden" id="resultComponent">
+            <div className="mb-6 w-[350px] h-[350px] md:w-[400px] md:h-[400px] relative overflow-hidden" id="resultComponent">
               <NextImage style={{ opacity: isRepositioning ? 0.5 : 1 }} className="top-0 left-0 z-10 w-full md:max-w-[500px] max-auto absolute" src={`/assets/${twibbonFileName}`} width={500} height={500} alt="Twibbon" />
               <DraggableImage style={{ opacity: isRepositioning ? 0.5 : 1, zIndex: isRepositioning ? 20 : 0 }} className="md:max-w-[500px] mx-auto" src={overlayImage} />
             </div>
