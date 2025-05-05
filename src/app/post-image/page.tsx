@@ -11,7 +11,9 @@ import { useSearchParams } from "next/navigation";
 export default function PostImage() {
   const [overlayImage, setOverlayImage] = useState<string>("")
   const [isRepositioning, setRepositioning] = useState<Boolean>(false)
+  const [isDownloading, setIsDownloading] = useState(false)
   const searchParams = useSearchParams()
+
 
   const twibbonFileName = searchParams?.get('twibbon')
 
@@ -25,9 +27,15 @@ export default function PostImage() {
   const handleDownload = () => {
     const node = document.getElementById('resultComponent')
     if (node) {
-      htmlToImage.toPng(node).then(function (dataUrl) {
-        download(dataUrl)
-      })
+      setIsDownloading(true)
+      htmlToImage
+        .toPng(node, { pixelRatio: 2 }) // kamu bisa ubah pixelRatio sesuai kebutuhan
+        .then(function (dataUrl) {
+          download(dataUrl)
+        })
+        .finally(() => {
+          setIsDownloading(false)
+        })
     }
   }
 
@@ -59,7 +67,7 @@ export default function PostImage() {
               <div className="w-full flex flex-row space-x-4 md:max-w-[500px]">
                 <RepositioningButton isRepositioning={isRepositioning} handleRepositioning={handleRepositioning} />
                 <CameraButton handleUploadImage={handleUploadImage} />
-                <DownloadButton handleDownload={handleDownload} />
+                <DownloadButton handleDownload={handleDownload} isLoading={isDownloading} />
               </div>
             ) : (
               <CameraButton handleUploadImage={handleUploadImage} className="w-full md:max-w-[500px]" label="Pilih Foto" />
