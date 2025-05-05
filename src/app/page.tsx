@@ -11,15 +11,9 @@ export default function Home() {
               <h2 className="text-3xl text-gray-950 font-semibold">
                 Twibbon Kegiatan Masjid Agung Al Munawwar
               </h2>
-              <p className="mt-6 text-gray-700">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates recusandae error veniam? Quibusdam assumenda animi, voluptates similique aliquam magni reiciendis?
-              </p>
             </div>
             <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-2 gap-3">
-              <TwibbonCard shadowColor="green" twibbonFileName="twibbon.png" />
-              <TwibbonCard shadowColor="red" twibbonFileName="twibbon.png" />
-              <TwibbonCard shadowColor="blue" twibbonFileName="twibbon.png" />
-              <TwibbonCard shadowColor="yellow" twibbonFileName="twibbon.png" />
+              <TwibbonCard shadowColor="green" twibbonFileName="musrem8.png" />
             </div>
           </div>
         </div>

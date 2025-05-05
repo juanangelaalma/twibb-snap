@@ -18,12 +18,6 @@ const TwibbonCard: React.FC<TwibbonCardType> = ({ shadowColor, twibbonFileName }
         <div className="border border-blue-500/10 flex relative w-[90%] mx-auto p-2 *:relative *:m-auto rounded-lg before:rounded-[7px] before:absolute before:inset-0 before:border-t before:border-white before:from-blue-100 before:shadow">
           <Image src={`/assets/${twibbonFileName}`} width={500} height={500} alt="Image" />
         </div>
-        <div className="mt-6 pb-6 rounded-b-[--card-border-radius]">
-          <p className="text-gray-700">
-            Amet praesentium deserunt ex commodi tempore fuga voluptatem.
-            Sit, sapiente.
-          </p>
-        </div>
         <div className="flex gap-3 -mb-8 py-4 border-t border-gray-200">
           <Link href={`/post-image?twibbon=${twibbonFileName}`} className="btn btn-primary bg-cyan-500 w-full text-white hover:bg-cyan-600">
             <svg
